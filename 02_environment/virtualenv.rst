@@ -46,11 +46,13 @@
 
 * изолированное окружение::
 
-    virtualenv --no-site-packages env
+    virtualenv env                           # начиная с версии 1.7
+    virtualenv --no-site-packages env        # до версии 1.7
 
 * неизолированное окружение::
 
-    virtualenv env
+    virtualenv --system-site-packages env    # начиная с версии 1.7
+    virtualenv env                           # до версии 1.7
 
 Будет создано пустое виртуальное окружение со следующей структурой каталогов,
 пример показан для Python 2.6 в неизолированном окружении::
@@ -66,6 +68,12 @@
       python2.6/
     lib/
       python2.6/
+
+При необходимости использовать определённую версию Python внутри окружения потребуется 
+добавить параметр `-p` или `--python` к команде создания окружения. Например::
+
+    virtualenv -p python2.5 env
+    virtualenv --python=python2.7 env
 
 .. _virtualenv_activate:
 
